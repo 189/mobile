@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui" >
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="前端观察">  
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<meta name="msapplication-tap-highlight" content="no" />
+	<link rel="stylesheet" href="reset.css">
+	<style>
+		* { margin: 0; padding: 0; }
+		p { height: 300px; width: 100px; color: #000; }
+		.box {
+			width: 26px;
+			border: 1px solid #ccc;
+		}
+		canvas { border: 10px solid #000; }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="http://html.pptv.com/HTML5_Cutting/img/image.jpg" id="img" alt="">
+	</div>
+	<script>
+	window.onload = function(){
+		var img = document.querySelector("#img");
+		var p = document.querySelector("p");
+		canvas = document.createElement("canvas");
+		canvas.width = img.offsetWidth;
+		canvas.height = img.offsetHeight;
+		document.body.appendChild(canvas);
+		// canvas.getContext('2d').drawImage(img, 100, 100);
+		// canvas.getContext('2d').drawImage(img, 100, 100, 200, 200);
+		canvas.getContext('2d').drawImage(img, 0, 0, 200, 200, 0, 0, 200, 200);
+		window.open(canvas.toDataURL("image/png"));
+	}
+	</script>
+</body>
+</html>
